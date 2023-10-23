@@ -15,6 +15,10 @@ jobs:
       run-scripts: "install-deps, test, build"
 
   publish:
+    permissions:
+      id-token: write # For signing
+      contents: read # For repo checkout.
+      actions: read # For getting workflow run info.
     needs: [build]
     runs-on: ubuntu-latest
     steps:
