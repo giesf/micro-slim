@@ -22,7 +22,7 @@
         "eslint-check": "eslint --max-warnings=0 .",
         "prettier-check": "prettier --check .",
         "type-check": "tsc --noEmit",
-        "install-dep": "yarn install",
+        "install-deps": "yarn install",
         "test": "tap test/ --allow-incomplete-coverage"
     },
     "repository": "@giesf/micro-lite",
