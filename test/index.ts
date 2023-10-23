@@ -10,7 +10,7 @@ import {
     sendError,
     buffer,
     json,
-    HttpError, RequestHandler, BufferInfo
+    HttpError, RequestHandler, BufferInfo, cors
 } from '../src/lib';
 import fetch from 'node-fetch';
 import type { AddressInfo } from 'net';
@@ -696,3 +696,21 @@ void test('Content-Type header for JSON is set', async (t) => {
     t.equal(res.headers.get('content-type'), 'application/json; charset=utf-8');
     shutdown();
 });
+
+
+void test('CORS Header smoke test Origin', async (t) => {
+    const fn: RequestHandler = (req, res) => {
+        // Chosen by fair dice roll. guaranteed to be random.
+        send(res, 200, 4);
+    };
+    const testOrigin = "http://brot.de"
+    const corsWrapper = cors({
+        origin: testOrigin
+    })
+    const [url, shutdown] = await startServer(corsWrapper(fn));
+    const res = await fetch(url)
+
+    t.same(res.headers.get("Access-Control-Allow-Origin"), testOrigin);
+    shutdown();
+});
+

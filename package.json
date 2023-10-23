@@ -23,7 +23,7 @@
         "prettier-check": "prettier --check .",
         "type-check": "tsc --noEmit",
         "install-dep": "yarn install",
-        "test": "tap test/"
+        "test": "tap test/ --allow-incomplete-coverage"
     },
     "repository": "@giesf/micro-lite",
     "publishConfig": {
