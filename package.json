@@ -25,7 +25,7 @@
         "install-deps": "yarn install",
         "test": "tap test/ --allow-incomplete-coverage"
     },
-    "repository": "@giesf/micro-slim",
+    "repository": "https://github.com/giesf/micro-slim",
     "publishConfig": {
         "provenance": true
     },
