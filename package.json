@@ -1,0 +1,60 @@
+{
+    "name": "@giesf/micro-slim",
+    "version": "10.2.0",
+    "description": "Smaller and less stable asynchronous HTTP microservices",
+    "license": "MIT",
+    "main": "./dist/src/lib/index.js",
+    "types": "./types/src/lib",
+    "files": [
+        "src",
+        "dist",
+        "types"
+    ],
+    "bin": {
+        "micro": "./dist/src/bin/micro.js"
+    },
+    "engines": {
+        "node": ">= 16.0.0"
+    },
+    "scripts": {
+        "build": "tsc",
+        "prepublishOnly": "yarn run build",
+        "eslint-check": "eslint --max-warnings=0 .",
+        "prettier-check": "prettier --check .",
+        "type-check": "tsc --noEmit",
+        "install-dep": "yarn install",
+        "test": "tap test/"
+    },
+    "repository": "@giesf/micro-lite",
+    "publishConfig": {
+        "provenance": true
+    },
+    "keywords": [
+        "micro",
+        "service",
+        "microservice",
+        "serverless",
+        "API"
+    ],
+    "dependencies": {
+        "arg": "4.1.0",
+        "content-type": "1.0.4",
+        "http-errors": "2.0.0"
+    },
+    "devDependencies": {
+        "@types/content-type": "1.1.5",
+        "@types/http-errors": "2.0.2",
+        "@types/node": "18.0.3",
+        "@types/node-fetch": "^2.6.7",
+        "@types/sinon": "^10.0.20",
+        "@types/tap": "^15.0.10",
+        "@vercel/style-guide": "3.0.0",
+        "eslint": "8.19.0",
+        "node-fetch": "2",
+        "prettier": "2.7.1",
+        "sinon": "^17.0.0",
+        "tap": "^18.5.2",
+        "typescript": "4.7.4"
+    },
+    "prettier": "@vercel/style-guide/prettier"
+}
